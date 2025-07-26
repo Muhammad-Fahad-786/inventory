@@ -1,0 +1,33 @@
+-- MongoDB doesn't use SQL, but this file documents the database structure
+-- This is for reference only - MongoDB collections are created automatically
+
+-- Users Collection Structure:
+-- {
+--   _id: ObjectId,
+--   username: String (required, unique),
+--   password: String (required, hashed),
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Products Collection Structure:
+-- {
+--   _id: ObjectId,
+--   name: String (required),
+--   type: String (required),
+--   sku: String (required, unique, uppercase),
+--   description: String (required),
+--   quantity: Number (required, integer, min: 0),
+--   price: Number (required, min: 0),
+--   image_url: String (optional, URL format),
+--   addCount: Number (default: 1, min: 1),
+--   createdAt: Date,
+--   updatedAt: Date
+-- }
+
+-- Indexes:
+-- Users: { username: 1 } (unique)
+-- Products: { sku: 1 } (unique)
+-- Products: { name: 1 }
+-- Products: { type: 1 }
+-- Products: { addCount: -1 }
